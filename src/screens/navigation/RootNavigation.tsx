@@ -18,9 +18,6 @@ const RootNavigation = () => {
           )
         }
      </Stack.Navigator>
-      <View>
-        <Text>RootNavigation</Text>
-      </View>
     </NavigationContainer>
   )
 }

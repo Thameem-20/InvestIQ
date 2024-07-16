@@ -1,12 +1,21 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import { createStackNavigator } from '@react-navigation/stack';
+import SplashScreen from '../auth/SplashScreen.tsx';
+import WelcomeScreen from '../auth/WelcomeScreen.tsx'; // Corrected file extension
+import LoginScreen from '../auth/LoginScreen.tsx';
+import RegisterScreen from '../auth/RegisterScreen.tsx';
+
+const Stack = createStackNavigator();
 
 const AuthNavigation = () => {
   return (
-    <View className='bg-orange-400 flex-1 justify-center items-center'>
-      <Text>AuthNavigation</Text>
-    </View>
-  )
-}
+    <Stack.Navigator>
+      <Stack.Screen name="splash" component={SplashScreen} />
+      <Stack.Screen name="Welcome" component={WelcomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+    </Stack.Navigator>
+  );
+};
 
-export default AuthNavigation
+export default AuthNavigation;
