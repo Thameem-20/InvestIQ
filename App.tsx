@@ -1,14 +1,20 @@
 import { View, Text } from 'react-native'
+import { StatusBar } from 'expo-status-bar';
 import React from 'react'
-import { useState } from 'react'
+import styled from "styled-components/native"
+import RootNavigation from './src/screens/navigation/RootNavigation'
 
 const App = () => {
-  const [session,setSession] = useState();
   return (
-    <View className="bg-orange-500 flex-1 justify-center items-center ">
-      <Text className='color-white text-3xl font-semibold'>Muskan </Text>
-    </View>
+   <Container>
+      <StatusBar style='auto'/>
+      <RootNavigation />
+   </Container>
   )
 }
 
 export default App
+
+const Container = styled(View)`
+  flex:1;
+`;
