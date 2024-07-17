@@ -12,10 +12,10 @@ const ButtonOutline:React.FC<ButtonOutlineProps> = ({
   children,
 }:ButtonOutlineProps) => {
   return (
-    <Pressable className='border-2 border-neutral-400 rounded-lg justify-center items-center py-3'
+    <Pressable className='border-2 border-neutral-400 rounded-lg justify-center items-center py-3 flex-row '
     onPress={action}
     >
-      {children && <View>chidren</View>}
+      {children && <View className='mr-2'>{children}</View>}
       <Text className='text-neutral-400 text-lg font-bold'>{title}</Text>
     </Pressable>
   )

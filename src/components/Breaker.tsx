@@ -5,10 +5,21 @@ const Breaker = () => {
   return (
     <Animated.View
     entering={FadeInRight.duration(100).delay(500).springify()}
-    className='w-ful flex-row'
+    className='w-full flex-row'
     >
-      <View className='h-10 w-[40%] bg-gray-400'></View>
-      <Text>Breaker</Text>
+      <View className='h-10 w-[40%] justify-center items-center'>
+        <View className='border-t-2 border-neutral-400 w-full'></View>
+      </View>
+
+    <View className='w-20% justify-center items-center'>
+      <Text className='text-gray-500 text-base mx-4'>
+        OR
+      </Text>
+    </View>
+
+      <View className='h-10 w-[40%] justify-center items-center'>
+        <View className='border-t-2 border-neutral-400 w-full'></View>
+      </View>
     </Animated.View>
   )
 }
