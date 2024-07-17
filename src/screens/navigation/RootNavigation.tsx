@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React, { useState } from 'react'
 import { TransitionPresets,createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer } from '@react-navigation/native';
@@ -6,10 +5,16 @@ const Stack = createStackNavigator();
 import AuthNavigation from './AuthNavigation';
 import TabNavigation from './TabNavigation/index';
 const RootNavigation = () => {
-  const [session , setSession] = useState(true)
+  const [session , setSession] = useState(false)
   return (
     <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+      headerShown:false,
+      ...TransitionPresets.SlideFromRightIOS,
+      animationEnabled:true,
+      gestureEnabled:true,
+      gestureDirection:'horizontal'
+    }} >
         {
           session ? (
             <Stack.Screen name="TabNavigation" component={TabNavigation} />

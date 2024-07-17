@@ -1,15 +1,21 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import SplashScreen from '../auth/SplashScreen.tsx';
-import WelcomeScreen from '../auth/WelcomeScreen.tsx'; // Corrected file extension
-import LoginScreen from '../auth/LoginScreen.tsx';
-import RegisterScreen from '../auth/RegisterScreen.tsx';
+import { TransitionPresets,createStackNavigator } from '@react-navigation/stack';
+import SplashScreen from '../auth/SplashScreen';
+import WelcomeScreen from '../auth/WelcomeScreen'; 
+import LoginScreen from '../auth/LoginScreen';
+import RegisterScreen from '../auth/RegisterScreen';
 
 const Stack = createStackNavigator();
 
 const AuthNavigation = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{
+      headerShown:false,
+      ...TransitionPresets.SlideFromRightIOS,
+      animationEnabled:true,
+      gestureEnabled:true,
+      gestureDirection:'horizontal'
+    }}>
       <Stack.Screen name="splash" component={SplashScreen} />
       <Stack.Screen name="Welcome" component={WelcomeScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
