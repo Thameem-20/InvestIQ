@@ -1,18 +1,21 @@
-import { View } from 'react-native'
-import React from 'react'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { StatusBar } from 'expo-status-bar'
-import Animated, { FadeInDown } from 'react-native-reanimated';
+import Breaker from '@/src/components/Breaker';
 import Button from '@/src/components/Button';
 import ButtonOutline from '@/src/components/ButtonOutline';
-import Breaker from '@/src/components/Breaker';
 import { AntDesign } from '@expo/vector-icons';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { Image } from 'expo-image';
-
+import { StatusBar } from 'expo-status-bar';
+import React from 'react';
+import { View } from 'react-native';
+import Animated, { FadeInDown } from 'react-native-reanimated';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const blurhash = '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 
 const WelcomeScreen = () => {
+
+  const { navigate:navigationAuth }:NavigationProp<AuthNavigationType> =useNavigation();
+
   return (
     <SafeAreaView className='flex-1 justify-between  items-center bg-[#FCF8F3]'>
       <StatusBar style="auto"/>
@@ -36,7 +39,7 @@ const WelcomeScreen = () => {
       </Animated.View>
     </View>
 
-    <View className='w-full h-full px-4 items-center justify-center space-y-6 mt-[-150px]'>
+    <View className='w-full h-full px-4 items-center justify-center space-y-4 mt-[-150px]'>
       <View className='justify-center items-center '>
           <Animated.Text
           entering={FadeInDown.duration(100).delay(200).springify()}
@@ -51,20 +54,20 @@ const WelcomeScreen = () => {
       entering={FadeInDown.duration(100).delay(300).springify()}
       className='pb-6'
       >
-        <Button title={"Login"} />
+        <Button title={"Login"} action={() =>{navigationAuth('Login')}} />
       </Animated.View>
       <Animated.View 
       entering={FadeInDown.duration(100).delay(300).springify()}
       >
-        <ButtonOutline title="Sign Up" />
+        <ButtonOutline title="Sign Up" action={() =>{navigationAuth('Register')}}/>
       </Animated.View>
      </View>
-
+{/*Breaker*/}
      <View>
         <Breaker />
      </View>
 
-
+{/*third party*/}
      <View className='w-full justify-start'>
           <Animated.View 
           entering={FadeInDown.duration(100).delay(600).springify()}
@@ -79,7 +82,7 @@ const WelcomeScreen = () => {
           entering={FadeInDown.duration(100).delay(600).springify()}
           className='border border-white pb-4'
           >
-                <ButtonOutline title="Continue with Apple">
+                <ButtonOutline title="Continue with Apple" >
                 <AntDesign name='apple1' size={30} color="grey" />
                 </ButtonOutline>
           </Animated.View>

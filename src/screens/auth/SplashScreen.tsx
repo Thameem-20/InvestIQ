@@ -9,7 +9,8 @@ import { StatusBar } from 'expo-status-bar';
 
 const SplashScreen = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();
-  const { navigate }: NavigationProp<SplashNavigationType> = useNavigation();
+  
+  const { navigate }: NavigationProp<AuthNavigationType> = useNavigation();
 
   const blurhash = '|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[';
 

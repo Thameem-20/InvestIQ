@@ -1,5 +1,11 @@
 // types
+type AuthNavigationType = {
+    Welcome: undefined,
+    Splash: undefined,
+    Login: undefined,
+    Register: undefined,
 
-type SplashNavigationType ={
-    Welcome : undefined;
+}
+type TabNavigationType ={
+    Home : undefined,
 }
