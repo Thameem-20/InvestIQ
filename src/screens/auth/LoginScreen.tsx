@@ -72,7 +72,7 @@ const { navigate:NavigateAuth }:NavigationProp<AuthNavigationType> = useNavigati
             {/*Password*/}
             <View className='border-2 border-gray-400 rounded-lg'>
               <TextInput className='p-2' placeholder='enter your password'
-              onChangeText={(text)=> setEmail(text)}
+              onChangeText={(text)=> setPassword(text)}
               value={password}
               autoCapitalize='none'
               >
