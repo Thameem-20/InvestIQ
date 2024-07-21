@@ -1,4 +1,4 @@
-import { View, Text, ActivityIndicator, Dimensions,Pressable } from 'react-native'
+import { View, Text, ActivityIndicator, Dimensions,Pressable, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { StatusBar } from 'expo-status-bar';
@@ -9,6 +9,8 @@ import Breaker from '@/src/components/Breaker';
 import ButtonOutline from '@/src/components/ButtonOutline';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation,NavigationProp } from '@react-navigation/native';
+import { supabase } from '@/lib/supabase';
+import { useUserStore } from '@/store/useUserStore';
 const {height ,width } = Dimensions.get("window")
 const LoginScreen = () => {
 
@@ -17,6 +19,34 @@ const { navigate:NavigateAuth }:NavigationProp<AuthNavigationType> = useNavigati
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const { setUser, setSession } = useUserStore();
+
+  async function signInWithEmail(){
+    setIsLoading(true)
+try {
+    const {
+      data,
+      error
+    } = await supabase.auth.signInWithPassword({
+      email:email,
+      password:password
+    })
+
+    if(data.session && data.user){
+        setSession(data.session)
+        setUser(data.user)
+    }
+    if(error){
+      setIsLoading(false)
+      Alert.alert("Error",error.message)
+    }
+}
+ catch (error) {
+  console.log('====================================');
+  console.log(error);
+  console.log('====================================');  
+}
+}
 
   return (
     <SafeAreaView className='flex-1'>
@@ -86,7 +116,7 @@ const { navigate:NavigateAuth }:NavigationProp<AuthNavigationType> = useNavigati
         className='w-full  justify-start '
         >
           <View className='p-2 mt-[-30px]'>
-            <Button title='Login' ></Button>
+            <Button title='Login' action={() => signInWithEmail()}></Button>
           </View>
 
         </Animated.View>

@@ -4,8 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 const Stack = createStackNavigator();
 import AuthNavigation from './AuthNavigation';
 import TabNavigation from './TabNavigation/index';
+import { useUserStore } from '@/store/useUserStore';
 const RootNavigation = () => {
-  const [session , setSession] = useState(false)
+  const { session } = useUserStore();
   return (
     <NavigationContainer>
     <Stack.Navigator screenOptions={{
