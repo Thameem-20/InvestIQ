@@ -14,7 +14,7 @@ import { useUserStore } from '@/store/useUserStore';
 
 const { height } = Dimensions.get('window');
 
-const RegisterScreen = () => {
+  const RegisterScreen = () => {
   const navigation = useNavigation<NavigationProp<AuthNavigationType>>();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
