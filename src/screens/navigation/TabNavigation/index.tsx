@@ -1,11 +1,15 @@
 import { View, Text, StyleSheet } from 'react-native';
 import React from 'react';
+import { createButtonTabNavigator } from '@react-navigation/bottom-tabs'
+import { icons } from '@expo/vector-icons';
+
+const Tab = createButtonTabNavigator();
 
 const TabNavigation = () => {
   return (
-    <View className='bg-orange-400 flex-1 justify-center items-center'>
-      <Text>TabNavigation</Text>
-    </View>
+    <Tab.navigation>
+      
+    </Tab.navigation>
   );
 }
 
