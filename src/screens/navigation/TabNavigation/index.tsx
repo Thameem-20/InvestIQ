@@ -7,7 +7,7 @@ import MarketNavigation from './MarketNavigation';
 import SearchNavigation from './SearchNavigation';
 import NewsNavigation from './NewsNavigation';
 import ProfileNavigation from './ProfileNavigation';
-
+import { TransitionPresets }from "@react-navigation/stack"
 const Tab = createBottomTabNavigator();
 
 const TabNavigation = () => {
@@ -16,7 +16,7 @@ const TabNavigation = () => {
     screenOptions={({ route }) => ({
       headerShown:false,
       tabBarIcon : ({ focused }) => {
-        let iconName;
+        let iconName: keyof typeof Ionicons.glyphMap | undefined;
         if(route.name === 'Home'){
           iconName ="home"
         }else if(route.name === 'Market'){
@@ -34,12 +34,22 @@ const TabNavigation = () => {
         const customizeSize =25;
         return (
           <Ionicons 
-          name={iconName}
+          name={ iconName }
           size = {customizeSize}
           color={(focused ? '#2ab07c' :"gray" )}
           />
         )
-      }
+      },
+      tabBarActiveTintColor:'#2ab07c',
+      tabBarInactiveTintColor:'gray',
+      tabBarLabelStyle:{
+        fontSize:12,
+        fontWeight:"bold",
+      },
+      ...TransitionPresets.SlideFromRightIOS, // Applying the slide transition preset
+      animationEnabled: true, // Enabling animations
+      gestureEnabled: true, // Enabling gestures
+      gestureDirection: 'horizontal', // Setting the gesture direction
     })}
     >
       <Tab.Screen name='Home' component={HomeNavigation}/>
