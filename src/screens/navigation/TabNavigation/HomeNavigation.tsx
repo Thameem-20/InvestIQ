@@ -3,9 +3,10 @@ import React from 'react'
 import { TransitionPresets,createStackNavigator } from '@react-navigation/stack'
 import HomeScreen from '../../tabs/home/HomeScreen';
 import CoinDetailScreen from '../../stacks/CoinDetailScreen';
+import { HomeStackParamList } from '../../../../types/navigation';
 
 const HomeNavigation = () => {
-  const Stack = createStackNavigator();
+const Stack = createStackNavigator<HomeStackParamList>();
   return (
     <Stack.Navigator
     screenOptions={{
@@ -17,7 +18,7 @@ const HomeNavigation = () => {
       }}
     >
       <Stack.Screen name='homeS' component={HomeScreen} />
-      <Stack.Screen name='coin' component={CoinDetailScreen} />
+      <Stack.Screen name='coinDetail' component={CoinDetailScreen} />
     </Stack.Navigator>
   )
 }

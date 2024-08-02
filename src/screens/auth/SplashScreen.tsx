@@ -6,6 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Image } from 'expo-image';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
+import { AuthNavigationType } from '@/types/navigation';
 
 const SplashScreen = () => {
   const { colorScheme, toggleColorScheme } = useColorScheme();

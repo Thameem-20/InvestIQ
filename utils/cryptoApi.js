@@ -8,11 +8,8 @@ const apiBaseUrl = 'https://coinranking1.p.rapidapi.com'
 const coinsUrl = `${apiBaseUrl}/coins?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h&tiers[0]=1&orderBy=marketCap&orderDirection=desc&limit=50&offset=0 `
 
 
-export const FetchAllCoin = async () =>{
-    return await cryptoAPiCall(coinsUrl)
-}
 
-const  cryptoAPiCall = async (endPoint, params)=>{
+const  cryptoAPICall = async (endPoint, params)=>{
     const options ={
         method: 'GET',
         url : endPoint,
@@ -31,4 +28,24 @@ try {
     console.log(error.message);
     return {}
 }
+}
+
+export const FetchAllCoin = async () =>{
+    return await cryptoAPICall(coinsUrl)
+}
+
+
+export const FetchCoinDetails = async (CoinUuid) =>{
+const endPoints = `${apiBaseUrl}/coin/${CoinUuid}?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`
+
+    return await cryptoAPICall(endPoints)
+}
+export const FetchCoinHistory = async (CoinUuid) =>{
+const endPoints = `${apiBaseUrl}/coin/${CoinUuid}/history?referenceCurrencyUuid=yhjMzLPhuIDl&timePeriod=24h`
+
+    return await cryptoAPICall(endPoints)
+}
+export const SearchCoin = async (search) =>{
+const endPoints = `${apiBaseUrl}/search-suggestion/${CoinUuid}/history?referenceCurrencyUuid=yhjMzLPhuIDl&query=${search}`
+    return await cryptoAPICall(endPoints)
 }

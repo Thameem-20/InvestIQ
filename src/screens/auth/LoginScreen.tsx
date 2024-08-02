@@ -11,6 +11,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation,NavigationProp } from '@react-navigation/native';
 import { supabase } from '@/lib/supabase';
 import { useUserStore } from '@/store/useUserStore';
+import { AuthNavigationType } from '@/types/navigation';
 const {height ,width } = Dimensions.get("window")
 const LoginScreen = () => {
 
