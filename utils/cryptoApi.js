@@ -46,6 +46,6 @@ const endPoints = `${apiBaseUrl}/coin/${CoinUuid}/history?referenceCurrencyUuid=
     return await cryptoAPICall(endPoints)
 }
 export const SearchCoin = async (search) =>{
-const endPoints = `${apiBaseUrl}/search-suggestion/${CoinUuid}/history?referenceCurrencyUuid=yhjMzLPhuIDl&query=${search}`
+const endPoints = `${apiBaseUrl}/search-suggestions?referenceCurrencyUuid=yhjMzLPhuIDl&query=${search}`
     return await cryptoAPICall(endPoints)
 }

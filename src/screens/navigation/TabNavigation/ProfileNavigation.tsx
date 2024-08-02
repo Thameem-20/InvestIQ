@@ -1,11 +1,21 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
+import React from 'react';
+import ProfileScreen from '../../tabs/profile/ProfileScreen';
 
 const ProfileNavigation = () => {
+  const Stack = createStackNavigator();
   return (
-    <View>
-      <Text>ProfileNavigation</Text>
-    </View>
+    <Stack.Navigator
+    screenOptions={{
+      headerShown: false,
+      ...TransitionPresets.SlideFromRightIOS,
+      animationEnabled:true,
+      gestureEnabled:true,
+      gestureDirection:'horizontal'
+      }}
+    >
+      <Stack.Screen name='MarketS' component={ProfileScreen} />
+    </Stack.Navigator>
   )
 }
 
