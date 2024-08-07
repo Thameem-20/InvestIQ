@@ -50,22 +50,20 @@ useFocusEffect(
 }
 
   return (
-    <SafeAreaView>
-        <View className=' p-2 py-3 bg-gray-300 rounded-xl border-2 border-neutral-500 my-5'>
-            <Pressable className='flex-row justify-between items-center'
-            onPress={() => handelSignOut()}
-            >
-                <View className='flex-row justify-center items-center space-x-2'>
-                <View className='p-1 rounded-lg bg-[#2ab07c]'>
-                        <MaterialIcons name='logout' size={24} color={'white'} />
-                </View>
-                <Text className='text-lg '>
-                    Log Out
-                </Text>
-            </View>
-            </Pressable>
+    <View className="flex-1 bg-white">
+      
+      <View>
+
+        {/*avatar*/}
+        <View className="border justify-center items-center py-14 pb-20 bg-[#2ab07c]">
+          
         </View>
-    </SafeAreaView>
+        
+      </View>
+      <text>ProfileScreen</text>
+
+    </View>
+
   )
 }
 
